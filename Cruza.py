@@ -26,21 +26,23 @@ madrina_1 = [9, 3, 7, 8, 2, 6, 5, 1, 4]
 print(cruza_ciclica(padrino_1,madrina_1))
 
 
-
 def ciclic(lista_1: list, lista_2: list):
-    i = 0
-    touchedIndex = []
-    while i not in touchedIndex:
-        index = i
-        indexValueList1 = lista_1[index]
-        indexValueList2 = lista_2[index]
-        SearchedIndexInList1 = lista_1.index(indexValueList2)
-        i = SearchedIndexInList1
-        touchedIndex.append(index)
-    for i in sorted(touchedIndex, reverse=True):
-        lista_1.pop(i)
-        lista_2.pop(i)
-    return touchedIndex, lista_1, lista_2
+    setTouchedIndex = []
+    while lista_1 != []:
+        i = 0
+        touchedIndex = []
+        while i not in touchedIndex:
+            index = i
+            indexValueList1 = lista_1[index]
+            indexValueList2 = lista_2[index]
+            SearchedIndexInList1 = lista_1.index(indexValueList2)
+            i = SearchedIndexInList1
+            touchedIndex.append(index)
+        for i in sorted(touchedIndex, reverse=True):
+            lista_1.pop(i)
+            lista_2.pop(i)
+        setTouchedIndex.append(touchedIndex)
+    return setTouchedIndex
 
 
 print(ciclic(padrino_1,madrina_1))
