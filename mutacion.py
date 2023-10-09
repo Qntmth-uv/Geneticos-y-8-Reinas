@@ -33,14 +33,14 @@ def mutacion_uniparental(individuo: list):
     mut = [0 for i in range(0, len(individuo), 1)]
     for i in range_init:
         mut[i] = individuo[i]
-    for (i,j) in zip(range_index, range_index_invers):
+    for (i, j) in zip(range_index, range_index_invers):
         mut[i] = individuo[j]
-    return mut, range_init, range_index
+    return mut
 
 
 #Ejemplos
-a1 = np.random.randint(100, 300, size=10).tolist()
+#a1 = np.random.randint(100, 300, size=10).tolist()
 # a2 = np.random.randint(0, 2, size=10).tolist()
-print(a1)
+#print(a1)
 # print(mutacion_inversion(a1, a2))
-print(mutacion_uniparental(a1))
+#print(mutacion_uniparental(a1))
