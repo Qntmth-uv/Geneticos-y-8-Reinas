@@ -63,16 +63,13 @@ def fitness(entity: list) -> float:
     fit = 1-diagAttack(entity)/28
     return fit
 
-acc = 0
-while acc != 1:
-    test1 = initTab()
-    acc = fitness(test1)
-    print(acc)
-    if acc == 1:
-        print(test1)
+# acc = 0
+# while acc != 1:
+#     test1 = initTab()
+#     acc = fitness(test1)
+#     print(acc)
+#     if acc == 1:
+#         print(test1)
 
-# initialPop = createPopulation(5)
-# print(initialPop)
-# mutedlist = [mutacion_uniparental(initialPop[i]) for i in range(0, len(initialPop),1 )]
-# print(mutedlist)
-#
+
+
