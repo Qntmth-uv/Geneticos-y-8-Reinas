@@ -10,9 +10,9 @@ def eigthQueensProblem(populationSize: int, iter: int):
             print(sel[0])
         else:
             maxFitPerIter.append(sel[1])
-            new_pop = remplacement(pop_init, sel[0])
+            new_pop = remplacement(pop_init, sel[0], sel[2])
             pop_init = new_pop
-    return max(maxFitPerIter)
+    return maxFitPerIter
 
-print(eigthQueensProblem(50, 5))
+print(eigthQueensProblem(10, 30))
 
