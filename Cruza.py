@@ -21,8 +21,6 @@ def cyclicV3(entity1: list, entity2: list):
 
     :return setsOfTouchedIndex --- Lista de listas con los indices tocados por el algoritmo ciclico.
     """
-    if len(entity1) != len(entity2):
-        return "sizes do not match!"
     notouchedIndex = [i for i in range(0, len(entity1), 1)]
     setOfToucedIndex = []
     i = 0

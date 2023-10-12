@@ -1,6 +1,6 @@
 from inicializacion import *
 from mutacion import mutacion_uniparental
-from Cruza import cruza_ciclica
+from Cruza import biSonSex
 
 
 def selectionParents(population: list):
@@ -56,7 +56,7 @@ def remplacement(population: list, choicenOnes: list, indexChoicenOnes: list):
         return population
     if (len(choicenOnes) % 2) == 0:
         for i in range(0, len(choicenOnes), 2):
-            cruza = cruza_ciclica(choicenOnes[i], choicenOnes[i+1])
+            cruza = biSonSex(choicenOnes[i], choicenOnes[i+1])
             population[indexChoicenOnes[i]] = cruza[0]
             population[indexChoicenOnes[i+1]] = cruza[1]
     else:
