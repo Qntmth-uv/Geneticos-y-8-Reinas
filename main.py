@@ -1,18 +1,48 @@
 from remplazo_y_seleccion import *
 
 
-def eigthQueensProblem(populationSize: int, iter: int):
-    maxFitPerIter = []
-    pop_init = createPopulation(populationSize)
-    for i in range(0, iter, 1):
-        sel = selectionParents(pop_init)
-        if sel[1] == 0:
-            print(sel[0])
-        else:
-            maxFitPerIter.append(sel[1])
-            new_pop = remplacement(pop_init, sel[0], sel[2])
-            pop_init = new_pop
-    return maxFitPerIter
+def eigthQueenProblemV2(populationSize: int, iter: int, selecctionNumber: int, remplaceSeleccion: bool):
+    """Algoritmo solución al problema de las ocho reinas
+    Se inicia con una población inicial, y un numero de iteraciones dadas por el usuario. Posteriormente se realizaran
+     el numero de iteraciones el remplazo de la población, se gruarda su fitness maximo para un grafico y
+     así sucesivamente, si encuentra un tablero perfecto entonces corta el cilo. Finalmente se calculan los fitness
+     de la ultima población y se devuelven los mejores fitness en cada iteracion, la poblacion original, la
+     poblacion final, y el mejor tablero de la poblacion final
 
-print(eigthQueensProblem(10, 30))
+     :parameter populationSize --- Tamaño de la población a generar
+     :parameter iter --- Numero de iteraciones a realizar en la población
+     :parameter selecctionNumber --- Numero de individuos que se seleccionaran en el torneo (mayor que cero y menor que el
+     tamaño de la población)
+     :parameter remplaceSeleccion --- Da la opción de pedir que en torneo no se repitan individuos.
+
+     :returns MaxFitPerIter --- Fitness maximo en cada iteración
+     :returns ancientPop --- Población orignal
+     :returns newPop --- Poblacion final
+     :returns bestBoard --- Mejor tablero de la población final"""
+    maxFitPerIter =[]
+    newPop= []
+    popIni = createPopulation(populationSize)
+    ancientPop = popIni
+    for i in range(0, iter, 1):
+        selected = selectionParentsRuleta(popIni, selecctionNumber, remplaceSeleccion)
+        newPop = remplacementV2(popIni, selected[1])
+        popIni = newPop
+        maxFitPerIter.append(selected[2])
+        if 1 in maxFitPerIter:
+            break
+    fitneSet = [fitness(i) for i in popIni]
+    maxmimumEndFitness = max(fitneSet)
+    bestBoard = popIni[fitneSet.index(maxmimumEndFitness)]
+    return maxFitPerIter, ancientPop, newPop, bestBoard
+
+
+#TESTEO
+testing1 = eigthQueenProblemV2(30,50,7,False)
+print(testing1[0])
+print(testing1[3])
+
+#SOLUTIONS FINDED
+#print(fitness([1, 6, 2, 5, 7, 4, 0, 3]))
+#print(fitness([4, 2, 0, 5, 7, 1, 3, 6]))
+#print(fitness([2, 0, 6, 4, 7, 1, 3, 5]))
 

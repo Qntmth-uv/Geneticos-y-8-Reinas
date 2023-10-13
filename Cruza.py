@@ -24,7 +24,7 @@ def cyclicV3(entity1: list, entity2: list):
     notouchedIndex = [i for i in range(0, len(entity1), 1)]
     setOfToucedIndex = []
     i = 0
-    while len(notouchedIndex) != 0:
+    while notouchedIndex != []:
         touchedIndex = []
         i = notouchedIndex[0]
         while i in notouchedIndex:
