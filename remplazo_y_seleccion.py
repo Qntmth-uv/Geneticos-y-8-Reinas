@@ -26,6 +26,7 @@ def selectionParentsRuleta(population: list, pick: int, remplace: bool):
     if pick <= 0 or pick >= len(population):
         return population
     fitneSet = [fitness(i) for i in population]
+    medianFitset = sum(fitneSet)/len(fitneSet)
     normFitset = [i - max(fitneSet) for i in fitneSet]
     probBeingChoice = [i / (sum(normFitset)) for i in normFitset]
     '#EXISTE UN PEQUEÑO BUG CUANDO LA POBLACIÓN ES BAJA, YA QUE PUEDE SUCEDER QUE TODOS TENGAN EL MISMO FITNESS,'
@@ -47,7 +48,7 @@ def selectionParentsRuleta(population: list, pick: int, remplace: bool):
     ChoicenOnes = [population[j] for j in indexChoicen]
     '# POR NATURALIZA ESTADISTICA PUEDE EXISTIR UN CASO DONDE LOS ELEMENTOS EN ELEGIDOS SE REPITAN, ESO NO ES DESABLE'
     'POR TANTO SE IMPLEMENTO UN PARAMETRO QUE PERMITE PEDIR QUE LOS ELEMENTOS NO SE REPITAN EN ChoicenOnes'
-    return ChoicenOnes, indexChoicen, max(fitneSet), fitneSet.index(max(fitneSet))
+    return ChoicenOnes, indexChoicen, max(fitneSet), fitneSet.index(max(fitneSet)), medianFitset
 
 
 def remplacementV2(popuation: list, indexChoicenOnes: list):

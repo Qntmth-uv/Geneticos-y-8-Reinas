@@ -1,5 +1,5 @@
 from remplazo_y_seleccion import *
-
+from matplotlib import pyplot as plt
 
 def eigthQueenProblemV2(populationSize: int, iter: int, selecctionNumber: int, remplaceSeleccion: bool):
     """Algoritmo solución al problema de las ocho reinas
@@ -21,6 +21,7 @@ def eigthQueenProblemV2(populationSize: int, iter: int, selecctionNumber: int, r
      :returns bestBoard --- Mejor tablero de la población final"""
     maxFitPerIter =[]
     newPop= []
+    setMediansPerIter = []
     popIni = createPopulation(populationSize)
     ancientPop = popIni
     for i in range(0, iter, 1):
@@ -28,21 +29,39 @@ def eigthQueenProblemV2(populationSize: int, iter: int, selecctionNumber: int, r
         newPop = remplacementV2(popIni, selected[1])
         popIni = newPop
         maxFitPerIter.append(selected[2])
+        setMediansPerIter.append(selected[4])
         if 1 in maxFitPerIter:
             break
     fitneSet = [fitness(i) for i in popIni]
     maxmimumEndFitness = max(fitneSet)
     bestBoard = popIni[fitneSet.index(maxmimumEndFitness)]
-    return maxFitPerIter, ancientPop, newPop, bestBoard
+    return maxFitPerIter, ancientPop, newPop, bestBoard, setMediansPerIter
 
 
 #TESTEO
 testing1 = eigthQueenProblemV2(30,50,7,False)
-print(testing1[0])
-print(testing1[3])
+# print(testing1[0])
+# print(testing1[3])
+# print(testing1[4])
 
 #SOLUTIONS FINDED
 #print(fitness([1, 6, 2, 5, 7, 4, 0, 3]))
 #print(fitness([4, 2, 0, 5, 7, 1, 3, 6]))
 #print(fitness([2, 0, 6, 4, 7, 1, 3, 5]))
+
+
+#GRAFICA
+# x_axis = np.arange(len(testing1[0]), dtype=int)
+#
+# plt.plot(x_axis, testing1[0], marker = 'o', label="Máximo")
+# plt.plot(x_axis, testing1[4], 'o', label="Media")
+#
+# plt.title("Fitness por iteración")
+# plt.xlabel("Iteración n.")
+# plt.ylabel("Fitness")
+# minimutboud = min(testing1[4])
+# plt.ylim(bottom = minimutboud-0.05, top= 1)
+# plt.grid(color = 'grey', linestyle = '--', linewidth = 1, alpha=0.45)
+# plt.legend(loc = "lower right", title = "Variables")
+# plt.show()
 
