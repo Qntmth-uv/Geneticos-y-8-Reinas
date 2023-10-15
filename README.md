@@ -2,7 +2,9 @@
 Primer proyecto de tecnicas de IA. 
 
 ## 1. Introducción. 
-En el ajedrez la pieza con mas movilidad es la reina, ya que combina todos los movimientos de todas las otras piezas. Entonces si jugaramos un juego de ajedrez con únicamente reinas existirian muchos ataques posibles (si se empieza con la misma distribución y cantidad que en un juego normal), eventualmente se iran atacado y retirando del tablero. Hasta quedar mínimo ocho que no se atacarán. Pero ¿por qué ocho? Bueno debido a la naturaleza de sus ataques estas ocupan toda una fila, una columna y dos diagonales; una diagonal principal y una secundaria. Exactamente en un tablero de ajedres convencional existen ocho filas y ocho columas, estas contienen diagonales principales y diagonales secundarias. Por tanto si ponemos una reina más por el principio de palomar deberá de existir un ataque (el principio de Palomar nos dice que si tenemos $n$ habitaciones y le asignamos a cada huesped una habitación, en el momento en que hayan más huespedes que habitaciones deberá haber una habitación con dos personas). Ahora que sabemos que el máximo de reinas es ocho para que no se ataquen en filas ni en columna, tocará buscar en que posición se deben de poner en fila para que no se ataquen en las diagonales. Así una permutación nos representa un tablero de ajedrez, que nos da la información de las reinas. Uno pensaría que es fácil encontra una solución, sin embargo, existen $8!$ tableros distintos y tendríamos que verificar para cada uno de ellos que no se ataquen. En esencia ese es nuestro problema a resolver, como puede observar es un problema de _método_, ya que conocemos las entradas, y queremos que nos devuelva un subconjunto particular de estos. El acercamiento que se tomará para resolver este problema será el del computo evolutivo, usando conceptos y tecnicas de esta area desarrollaremos funciones para la resolución del problema.
+En el ajedrez la pieza con mas movilidad es la reina, ya que combina todos los movimientos de todas las otras piezas. Entonces si jugaramos un juego de ajedrez con únicamente reinas, existirian muchos ataques posibles (si se empieza con la misma distribución y cantidad que en un juego tradicional), eventualmente se iran atacado y retirando del tablero. Hasta quedar un máximo de ocho que no se atacarán. Pero ¿por qué ocho? Bueno debido a la naturaleza de sus ataques estas ocupan toda una fila, una columna y dos diagonales; una diagonal principal y una secundaria. Exactamente en un tablero de ajedres convencional existen ocho filas y ocho columas, estas contienen diagonales principales y diagonales secundarias. Por tanto si ponemos una reina más por el principio de palomar deberá de existir un ataque (el principio de Palomar nos dice que si tenemos $n$ habitaciones y le asignamos a cada huesped una habitación, en el momento en que hayan más huespedes que habitaciones deberá haber una habitación con dos personas). 
+
+Ahora que sabemos que el máximo de reinas es ocho para que no se ataquen en filas ni en columna, tocará buscar en que posición de fila (con columna fija) se debe de situar para que no se ataquen en las diagonales. Así una permutación nos representa un tablero de ajedrez, que nos da la información sobre la posición de las reinas sobre el tablero. Uno pensaría que es fácil encontra una solución, sin embargo, existen $8!$ tableros distintos y tendríamos que verificar para cada uno de ellos que no se ataquen. En esencia ese es nuestro problema a resolver, como puede observar es un problema de _método_, ya que conocemos las entradas, y queremos que nos devuelva un subconjunto particular de estos. El acercamiento que se tomará para resolver este problema será el del computo evolutivo, usando conceptos y tecnicas de esta area desarrollaremos funciones para la resolución del problema.
 
 
 ## 2. Materiales y métodos.
@@ -103,9 +105,9 @@ A continuación damos una descripción de las funciones asiganadas para el desar
       * `True`: Permite que se repitan ganadores.
 
   Esta regresa:
-    * `MaxFitPerIter`: El máximo fitness de la _población_ en cada iteración.
-    * `ancientPop` La `polacion` original.
-    - `NewPop`: La `población` final, está es la población que ha sido seleccionada, cruzada, mutada y remplazada.
+    * `MaxFitPerIter`: El máximo fitness de la población en cada iteración.
+    * `ancientPop`: La polacion original.
+    - `NewPop`: La población final, está es la población que ha sido seleccionada, cruzada, mutada y remplazada.
     - `bestBoard`: El mejor tablero de `Newpop` con respecto al fitness.
 
 ### 🛄 Gráficas de convergencia.
