@@ -108,9 +108,13 @@ A continuación damos una descripción de las funciones asignadas para el desarr
     - `bestBoard`: El mejor tablero de `Newpop` con respecto al fitness.
 
 ### 🛄 Gráficas de convergencia.
-En las siguientes cuatro imágenes se muestra el comportamiento de la solución al problema de las cuatro reinas. Se han generado de la siguiente manera. Se han creado poblaciones de treinta individuos un número máximo de cincuenta iteraciones, se han graficado el máximo fitness de cada iteración y la media del fitness de cada iteración. Podrá observar que no todas las gráficas poseen las cincuenta iteraciones, ya que algunas convergen prontamente a una solución. Así que para ahorrar memoria cortamos las iteraciones cuando posemos alguna solución. Así mismo recuérdese que nuestro fitness es de cero a uno, entre más cercano a cero es peor el tablero, mientras que el uno es un tablero que no tiene ataques.
+En las siguientes cuatro imágenes se muestra el comportamiento de la solución al problema de las cuatro reinas. Se han generado de la siguiente manera:  
+
+Se han creado poblaciones de treinta individuos con un número máximo de cincuenta iteraciones, se han graficado el máximo fitness de cada iteración y la media del fitness de cada iteración. Podrá observar que no todas las gráficas poseen las cincuenta iteraciones, ya que algunas convergen prontamente a una solución. Así que para ahorrar memoria cortamos las iteraciones cuando posemos alguna solución. Así mismo recuérdese que nuestro fitness es de cero a uno, entre más cercano a cero es peor el tablero, mientras que el uno es un tablero que no tiene ataques.
 
 <img src="graph1.png" alt="drawing" width="430"/><img src="graph2.png" alt="drawing" width="430"/><img src="graph3.png" alt="drawing" width="430"/><img src="graph4.png" alt="drawing" width="430"/>
+
+Algo que destacar es que la media de las cuatro imagenes debe de estar cerca del 0.85, es decir, en promedio los tablero tenian cuatro ataques (recuerde el como se definio el _fitness_ y que 1/28 = 0.03571428571...). También puede mostrarse la casí constancia de un tablero con uno o dos ataques, estos debieron de haber sido la norma para generar la probabilidad de la selección. 
 
 ## 3. Conclusiones
 Con las funciones desarrolladas para la resolución del problema se logran obtener soluciones del problema. Pero ¿en realidad son soluciones distintas? puede que en realidad no. Dado que el grupo $S_8$ de permutaciones es un grupo bajo el producto de permutaciones, puede suceder que algunas soluciones puedan ser obtenidas a partir de algunas operaciones del grupo. Por ejemplo, a través de reflexiones, inversiones y rotaciones o incluso a partir del producto de alguna permutación en especial. Sin embargo, nuestra resolución al problema no está diseñado para hacer dichas distinciones, un trabajo un poco más avanzado podría clasificar los tableros que no se pueden obtener a partir de ciertas de ciertas operaciones del grupo.
