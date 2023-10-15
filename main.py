@@ -1,6 +1,7 @@
 from remplazo_y_seleccion import *
 from matplotlib import pyplot as plt
 
+
 def eigthQueenProblemV2(populationSize: int, iter: int, selecctionNumber: int, remplaceSeleccion: bool):
     """Algoritmo solución al problema de las ocho reinas
     Se inicia con una población inicial, y un numero de iteraciones dadas por el usuario. Posteriormente se realizaran

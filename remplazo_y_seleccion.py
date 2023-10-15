@@ -47,7 +47,7 @@ def selectionParentsRuleta(population: list, pick: int, remplace: bool):
             indexChoicen.append(k)
     ChoicenOnes = [population[j] for j in indexChoicen]
     '# POR NATURALIZA ESTADISTICA PUEDE EXISTIR UN CASO DONDE LOS ELEMENTOS EN ELEGIDOS SE REPITAN, ESO NO ES DESABLE'
-    'POR TANTO SE IMPLEMENTO UN PARAMETRO QUE PERMITE PEDIR QUE LOS ELEMENTOS NO SE REPITAN EN ChoicenOnes'
+    'POR TANTO SE IMPLEMENTO UN PARAMETRO QUE PERMITE PEDIR QUE LOS ELEMENTOS NO SE REPITA N EN ChoicenOnes'
     return ChoicenOnes, indexChoicen, max(fitneSet), fitneSet.index(max(fitneSet)), medianFitset
 
 
