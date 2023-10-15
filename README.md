@@ -2,6 +2,8 @@
 Primer proyecto de tecnicas de IA. 
 
 ## 1. Introducción. 
+En el ajedrez la pieza con mas movilidad es la reina, ya que combina todos los movimientos de todas las otras piezas. Entonces si jugaramos un juego de ajedrez con únicamente reinas existirian muchos ataques posibles (si se empieza con la misma distribución y cantidad que en un juego normal), eventualmente se iran atacado y retirando del tablero. Hasta quedar mínimo ocho que no se atacarán. Pero ¿por qué ocho? Bueno debido a la naturaleza de sus ataques estas ocupan toda una fila, una columna y dos diagonales; una diagonal principal y una secundaria. Exactamente en un tablero de ajedres convencional existen ocho filas y ocho columas, estas contienen diagonales principales y diagonales secundarias. Por tanto si ponemos una reina más por el principio de palomar deberá de existir un ataque (el principio de Palomar nos dice que si tenemos $n$ habitaciones y le asignamos a cada huesped una habitación, en el momento en que hayan más huespedes que habitaciones deberá haber una habitación con dos personas). Ahora que sabemos que el máximo de reinas es ocho para que no se ataquen en filas ni en columna, tocará buscar en que posición se deben de poner en fila para que no se ataquen en las diagonales. Así una permutación nos representa un tablero de ajedrez, que nos da la información de las reinas. Uno pensaría que es fácil encontra una solución, sin embargo, existen $8!$ tableros distintos y tendríamos que verificar para cada uno de ellos que no se ataquen. En esencia ese es nuestro problema a resolver, como puede observar es un problema de _método_, ya que conocemos las entradas, y queremos que nos devuelva un subconjunto particular de estos. El acercamiento que se tomará para resolver este problema será el del computo evolutivo, usando conceptos y tecnicas de esta area desarrollaremos funciones para la resolución del problema.
+
 
 ## 2. Materiales y métodos.
 - ### 💻 Requerimientos 
@@ -113,5 +115,10 @@ En las siguientes cuatro imagenes se muestra el comportamiento de la solución a
 <img src="graph1.png" alt="drawing" width="430"/><img src="graph2.png" alt="drawing" width="430"/><img src="graph3.png" alt="drawing" width="430"/><img src="graph4.png" alt="drawing" width="430"/>
 
 ## 3. Conclusiones
-Durante la programación del algoritmo de éste problema se notó la necesidad de saber que quieres hacer antes de ponerte a escribir a lo loco. Además del clásico hecho 
+Con las funciones desarrolladas para la resolución del problema se logran obtener soluciones del problema. Pero ¿en realidad son soluciones distintas? puede que en realidad no. Dado que el grupo $S_8$ de permutaciones es un grupo bajo el producto de permutaciones, puede suceder que algunas soluciones puedan ser obtenidas a partir de algunas operaciones del grupo. Por ejemplo a través de reflexiones, inversiones y rotaciones o incluso a partir del producto de alguna permutación en especial. Sin embargo nuestra resolución al problema no está diseñado para hacer dichas distinciones, un trabajo un poco más avanzado podría clasificar los tableros que no se pueden obtener a partir de ciertas de ciertas operaciones del grupo.
+
+Así mismo nuestro enfoque fue la resolución en un tablero de ajedrez clásico, es decir, en un tablero de ocho por ocho. Cabe preguntarse que tanto se puede generalizar nuestro código para resolver tableros de mayor o menor tamaño. Claramente entre más grande sea el tablero existirán más soluciones, ya que se podrían usar soluciones para tableros más pequeños y usarlos como base, en este sentido se tendrán más soluciones. Pero dado que la función permutación crece de manera muy rápida, se tendrá prontamente un número gigantesco de tableros a probar.
+
+También se podría tratar de resolver con otro enfoqué ó usando otas herramientas más especializadas.
+ 
 
