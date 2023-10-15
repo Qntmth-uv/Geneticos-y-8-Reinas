@@ -6,9 +6,13 @@ Primer proyecto de tecnicas de IA.
 ## 2. Materiales y métodos.
 - Python: 3.7
 - Bibliotecas usadadas, pueden consultarse [aqui](wwww.google.com)
+  En especifico se usaron las siguientes funciones de las librerias instaladas para resolver el problema:
+    * `np.random.uniform()`: Para generar un número aleatorio de una distribución uniforme (selección de padres)
+    * `np.random.choice()`:  Para generar permutaciones aleatorias (inicialización); así mismo para generar dos números aleatorios no repetidos (inversión)
+    
 - Tabla de datos:
 
-
+  
 | Función | Asignada |
 |----------|---------|
 | **Inicialización** | Aleatoria |
@@ -16,6 +20,8 @@ Primer proyecto de tecnicas de IA.
 | **Cruza** | Ciclica |
 | **Mutación** | Inversión |
 | **Remplazo** | Generacional |
+
+### Descripcción de los metodos de la tabla
 
 A continuación damos una descripción de las funciones asiganadas para el desarrrollo de la resolución de nuestro problema.
 
@@ -98,4 +104,12 @@ A continuación damos una descripción de las funciones asiganadas para el desar
     - `NewPop`: La `población` final, está es la población que ha sido seleccionada, cruzada, mutada y remplazada.
     - `bestBoard`: El mejor tablero de `Newpop` con respecto al fitness.
 
-[graficaImagen]: https://github.com/Qntmth-uv/Geneticos-y-8-Reinas/blob/main/Figure_1.png
+### Graficas de convergencia.
+En las siguientes cuatro imagenes se muestra el comportamiento de la solución al problema de las cuatro reinas. Se han generado de la siguiente manera. Se han creado poblaciónes de treinta individuos un número máximo de cincuenta iteraciones, se han graficado el máximo fitness de cada iteración y la media del fitness de cada iteración. Podra observar que no todas las graficas poseén las cincuenta iteraciones, ya que algunas convergen prontamente a una solución. Así que para ahorar memoria cortamos las iteraciones cuando posemos alguna solución. Así mismo recuerdese que nuestro fitness es de cero a uno, entre más cercano a cero es peor el tablero, mientras que el uno es un tablero que no tiene ataques.
+
+
+<img src="graph1.png" alt="drawing" width="430"/><img src="graph2.png" alt="drawing" width="430"/><img src="graph3.png" alt="drawing" width="430"/><img src="graph4.png" alt="drawing" width="430"/>
+
+## 3. 
+
+[grafica1](https://github.com/Qntmth-uv/Geneticos-y-8-Reinas/blob/main/graph1.png)
